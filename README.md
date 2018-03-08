@@ -46,6 +46,10 @@ The bot is suppose to maintain a session and continously listen to the predefine
 ```
 pip install -r requirements.txt
 ```
+* Run application
+```
+python bot.py
+```
 
 ## How to complete the task
 
