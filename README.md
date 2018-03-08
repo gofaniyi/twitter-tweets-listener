@@ -29,6 +29,13 @@ The bot is suppose to maintain a session and continously listen to the predefine
 4. Then click on the ‘Create your Twitter application’ button.
 5. Replace the consumer key, consumer secret, access token and access token secret values with the ones you generate.
 
+
+## Other Information
+* Ensure you install all project dependencies 
+```
+pip install -r requirements.txt
+```
+
 ## How to complete the task
 
 1. Fork this repository into your own public repo.
