@@ -20,7 +20,7 @@ Target accounts using either of these criteria:
 The bot is suppose to maintain a session and continously listen to the predefined hashtag
 
 ## Development language
-* Python 3.6
+* Python 3.6.2
 
 ## Getting Started
 1. Create a Twitter account https://twitter.com/signup
