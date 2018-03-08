@@ -1,15 +1,18 @@
 import tweepy
+import os
 import re
-from credentials import TwitterCredentials
 
+twitter_consumer_key = os.getenv("TWITTER_CONSUMER_KEY", "")
+twitter_consumer_secret = os.getenv("TWITTER_CONSUMER_SECRET", "")
+twitter_access_token = os.getenv("TWITTER_ACCESS_TOKEN", "")
+twitter_access_token_secret = os.getenv("TWITTER_ACCESS_TOKEN_SECRET", "")
 
-twitter_cred = TwitterCredentials()
 authentication = tweepy.OAuthHandler(
-                    twitter_cred.consumer_key,
-                    twitter_cred.consumer_secret)
+                    twitter_consumer_key,
+                    twitter_consumer_secret)
 authentication.set_access_token(
-                    twitter_cred.access_token,
-                    twitter_cred.access_token_secret)
+                    twitter_access_token,
+                    twitter_access_token_secret)
 api = tweepy.API(authentication)
 
 class Bot(object):
