@@ -30,5 +30,5 @@ class GoogleSpreadSheets(object):
 
         wks = spreadsheet.sheet1
         # Update a cell with value (just to let him know values is updated ;) )
-        wks.update_cell('A1', data['name'])
-        wks.update_cell('B1', data['followers_count'])
+        wks.update_cell('A1', data['Profile name'])
+        wks.update_cell('B1', data['Number of followers'])

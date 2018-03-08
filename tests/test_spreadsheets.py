@@ -18,5 +18,7 @@ class GoogleSpreadSheetsTestCase(unittest.TestCase):
 
     def test_can_write_to_file(self):
         filename = 'Filename2'
-        data = {'name' : 'gofaniyi', 'followers_count' : 2000}
+        username = 'gofaniyi'
+        followers_count = 2000
+        data={'Profile name' : username, 'Number of followers' : followers_count}
         self.instance.write(filename=filename, data=data)
