@@ -1,6 +1,4 @@
 import unittest
-from subprocess import call
-
 from credentials import TwitterCredentials
 
 class CredentialsTestCase(unittest.TestCase):
@@ -10,4 +8,4 @@ class CredentialsTestCase(unittest.TestCase):
         self.assertTrue(twitter_credentials.consumer_key != "")
         self.assertTrue(twitter_credentials.consumer_secret != "")
         self.assertTrue(twitter_credentials.access_token != "")
-        self.assertTrue(twitter_credentials.access_secret != "")
+        self.assertTrue(twitter_credentials.access_token_secret != "")
