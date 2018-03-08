@@ -1,2 +1,3 @@
 venv/
 startup.sh
+__pycache__/
