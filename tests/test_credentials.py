@@ -1,9 +1,5 @@
 import unittest
 from subprocess import call
-try:
-    from unittest import mock
-except ImportError:
-    import mock
 
 from credentials import TwitterCredentials
 
