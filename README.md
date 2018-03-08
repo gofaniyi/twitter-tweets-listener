@@ -10,7 +10,7 @@ Applicants may use whatever language they want to achieve the outcome.
 
 Build a bot that extracts the following from people’s Twitter bio (on public/open accounts), into a Google spreadsheet:
 
-* Twitter profile name 
+* Twitter profile name
 * Number of followers
 
 Target accounts using either of these criteria:
@@ -18,6 +18,16 @@ Target accounts using either of these criteria:
 * Based on number of followers; Between 1,000 - 50,000
 
 The bot is suppose to maintain a session and continously listen to the predefined hashtag
+
+## Development language
+* Python 3.6
+
+## Getting Started
+1. Create a Twitter account https://twitter.com/signup
+2. Go to apps.twitter.com and click on 'Create New App ' button.
+3. Fill out the details of the form correctly.
+4. Then click on the ‘Create your Twitter application’ button.
+5. Replace the consumer key, consumer secret, access token and access token secret values with the ones you generate.
 
 ## How to complete the task
 
