@@ -8,18 +8,29 @@ twitter_consumer_secret = os.getenv("TWITTER_CONSUMER_SECRET", "")
 twitter_access_token = os.getenv("TWITTER_ACCESS_TOKEN", "")
 twitter_access_token_secret = os.getenv("TWITTER_ACCESS_TOKEN_SECRET", "")
 
-authentication = tweepy.OAuthHandler(
-                    twitter_consumer_key,
-                    twitter_consumer_secret)
-authentication.set_access_token(
-                    twitter_access_token,
-                    twitter_access_token_secret)
-api = tweepy.API(authentication)
+
+def initializeCredentials():
+
+    if not all([twitter_consumer_key, twitter_consumer_secret, twitter_access_token, twitter_access_token_secret]):
+        raise ValueError('You need to set the Twitter Credentials')
+
+    authentication = tweepy.OAuthHandler(
+                        twitter_consumer_key,
+                        twitter_consumer_secret)
+    authentication.set_access_token(
+                        twitter_access_token,
+                        twitter_access_token_secret)
+
+    return authentication
 
 class Bot(object):
 
+    def __init__(self):
+        authentication = initializeCredentials()
+        self.api = tweepy.API(authentication)
+
     def public_tweets(self):
-        return api.home_timeline()
+        return self.api.home_timeline()
 
 
 
@@ -35,7 +46,9 @@ class BotStreamListener(tweepy.StreamListener):
         username = status.user.screen_name
         followers_count = status.user.followers_count
         data={'Profile name' : username, 'Number of followers' : followers_count}
+
         GoogleSpreadSheets().write(filename='Twitter Bot', data=data)
+
         for key in ['Profile name', 'Number of followers']:
             value = data[key]
             print(f'[*] {key}: {value}')
@@ -47,6 +60,7 @@ if __name__ == "__main__":
     #Add hastag symbol to inputs without the symbol.
     hastags = ["#" + tag if '#' not in tag else tag for tag in tags]
     if hastags:
+        authentication = initializeCredentials()
         myStreamListener = BotStreamListener()
         stream = tweepy.Stream(authentication, myStreamListener)
         print(f'[-] Filter stream based on the following hastags : {hastags}')
