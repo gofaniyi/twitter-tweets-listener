@@ -39,13 +39,18 @@ The bot is suppose to maintain a session and continously listen to the predefine
 4. Create credentials for a service account to access Application data.
 5. Obtain OAuth2 credentials from Google Developers Console for google spreadsheet api and drive api
 6. Save the file as client_secret.json in same directory as project.
-5. Look up this link https://pygsheets.readthedocs.io/en/latest/authorizing.html for more information on Authorizing pygsheets 
+5. Look up this link https://pygsheets.readthedocs.io/en/latest/authorizing.html for more information on Authorizing pygsheets
 
 ## Other Information
 * Ensure you install all project dependencies
 ```
 pip install -r requirements.txt
 ```
+* Run Test
+```
+python -m unittest tests.test_bot tests.test_spreadsheets
+```
+
 * Run application
 ```
 python bot.py

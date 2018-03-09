@@ -11,7 +11,10 @@ def is_empty(data):
 class GoogleSpreadSheets(object):
 
     def __init__(self):
-        self.gc = pygsheets.authorize(outh_file='client_secret.json')
+        try:
+            self.gc = pygsheets.authorize(outh_file='client_secret.json')
+        except FileNotFoundError as e:
+            raise e
 
 
     def create(self, filename='New File'):
