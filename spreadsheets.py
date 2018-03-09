@@ -1,5 +1,13 @@
 import pygsheets
 
+
+def is_empty(data):
+    valid_count = 0
+    for element in data:
+        if element and element != ['']:
+            valid_count += 1
+    return valid_count == 0
+
 class GoogleSpreadSheets(object):
 
     def __init__(self):
@@ -19,9 +27,14 @@ class GoogleSpreadSheets(object):
         except pygsheets.SpreadsheetNotFound as e:
             raise e
 
+    def read(self, worksheet):
+        return worksheet.get_all_values(returnas='matrix')
 
 
-    def write(self, spreadsheet=None, filename=None, data=None):
+    def delete(self, worksheet):
+        del_worksheet(worksheet)
+
+    def write(self, spreadsheet=None, filename=None, payload=None):
         if not spreadsheet:
             try:
                 spreadsheet = self.open(filename)
@@ -29,6 +42,17 @@ class GoogleSpreadSheets(object):
                 spreadsheet = self.create(filename)
 
         wks = spreadsheet.sheet1
+        data = self.read(wks)
+
+        index = len(data)
+
+        if is_empty(data):
+            wks.update_cell('A1', 'Profile name')
+            wks.update_cell('B1', 'Number of followers')
+
+        index += 1
+
         # Update a cell with value (just to let him know values is updated ;) )
-        wks.update_cell('A1', data['Profile name'])
-        wks.update_cell('B1', data['Number of followers'])
+        wks.update_cell(f'A{index}', payload['Profile name'])
+        wks.update_cell(f'B{index}', payload['Number of followers'])
+        return wks

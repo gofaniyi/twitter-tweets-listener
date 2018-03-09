@@ -47,7 +47,8 @@ class BotStreamListener(tweepy.StreamListener):
         followers_count = status.user.followers_count
         data={'Profile name' : username, 'Number of followers' : followers_count}
 
-        GoogleSpreadSheets().write(filename='Twitter Bot', data=data)
+        filename = 'DevCenter Twitter Bot'
+        GoogleSpreadSheets().write(filename=filename, payload=data)
 
         for key in ['Profile name', 'Number of followers']:
             value = data[key]
