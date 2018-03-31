@@ -1,4 +1,4 @@
-venv/
+venv*/
 startup.sh
 __pycache__/
 client_secret.json
