@@ -58,7 +58,7 @@ class BotStreamListener(tweepy.StreamListener):
 if __name__ == "__main__":
     text = input("[+] Enter each hastag separated by comma or space: ")
     tags = re.findall(r"[\w']+", text)
-    #Add hastag symbol to inputs without the symbol.
+    #Add hastag symbol to inputs without the followers_count symbol.
     hastags = ["#" + tag if '#' not in tag else tag for tag in tags]
     if hastags:
         authentication = initializeCredentials()

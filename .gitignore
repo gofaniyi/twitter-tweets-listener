@@ -3,3 +3,4 @@ startup.sh
 __pycache__/
 client_secret.json
 sheets.googleapis.com-python.json
+.env

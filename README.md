@@ -20,7 +20,7 @@ The bot is suppose to maintain a session and continously listen to the predefine
 
 ## Twitter Account/App Setup
 1. Create a Twitter account in case you don't have one. https://twitter.com/signup
-2. Go to apps.twitter.com and click on 'Create New App ' button.
+2. Go to apps.twitter.com and click on 'Create New App' button.
 3. Fill out the details of the form correctly.
 4. Then click on the ‘Create your Twitter application’ button.
 5. Replace the consumer key, consumer secret, access token and access token secret values with the ones you generate.
@@ -32,7 +32,7 @@ The bot is suppose to maintain a session and continously listen to the predefine
 4. Create credentials for a service account to access Application data.
 5. Obtain OAuth2 credentials from Google Developers Console for google spreadsheet api and drive api
 6. Save the file as client_secret.json in same directory as project.
-5. Look up this link https://pygsheets.readthedocs.io/en/latest/authorizing.html for more information on Authorizing pygsheets
+5. Look up this link https://pygsheets.readthedocs.io/en/stable/ for more information on authorizing pygsheets and pygsheets in general
 
 ## Other Information
 * Ensure you install all project dependencies
